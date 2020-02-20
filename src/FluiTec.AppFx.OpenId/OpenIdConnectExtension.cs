@@ -18,7 +18,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
-            var settings = configuration.GetConfiguration<OpenIdConnectOptions>();
+            var settings = configuration.Configure<OpenIdConnectOptions>(services);
             services.AddSingleton(settings);
             services.AddAuthentication(options =>
                 {
